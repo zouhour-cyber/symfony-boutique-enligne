@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h3>Products</h3>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td> <img src="{{ product.Image}}" class="imgg" /> </td>
+
+                <td>{{ product.Name }}</td>
+                <td>{{ product.Category }}</td>
+                <td>{{ product.Price }}</td>
+
+                <td>
+                    <a href="{{ path('my_show', {'id': product.id}) }}"> <button class="btn btn-warning"> show </button> </a>
+                    <a href="{{ path('my_edit', {'id': product.id}) }}"> <button class="btn btn-info"> edit</button> </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('my_new') }}"> <button class="btn btn-primary" > Create new </button> </a>
+{% endblock %}

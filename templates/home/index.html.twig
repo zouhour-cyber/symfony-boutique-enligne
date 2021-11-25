@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div class="container d-flex" >
+<div class="row">
+{% for article in articles %}
+
+<div class="col-md-4">
+<div class="card" style="width: 18rem;">
+ <img src="{{ article.Image}}" class="card-img-top" style="height: 15rem;" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ article.Name }} </h5>
+    <p class="card-text"> {{ article.Price }}  <br>
+    {{ article.Category }} <br> 
+    </p>
+    <a href="#" class="btn btn-info">Acheter</a>
+  </div>
+</div>
+ </div> 
+        
+     
+   {% endfor %}  
+    </div> 
+   </div>    
+{% endblock %}
